@@ -1,2 +1,3 @@
 # alfin-gogoblesan-js
-alfin-hsail mengerjakan challenge gogoblesan dari youtube dea afrizal
+alfin-hasil mengerjakan challenge gogoblesan dari youtube dea afrizal
+untuk code yang salah ataupun kurang bisa request brooo...!
