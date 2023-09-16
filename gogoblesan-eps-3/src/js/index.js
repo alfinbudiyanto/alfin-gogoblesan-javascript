@@ -7,7 +7,7 @@ function simpanInputHobi() {
   const input = document.getElementById("inputHobi");
   const hobi = input.value;
   listHobi.push(hobi);
-  hasil.textContent = listHobi;
+  hasil.textContent = listHobi.join(" - ");
 }
 
 function mengalihkan() {
@@ -15,10 +15,10 @@ function mengalihkan() {
   const ke = document.getElementById("ke");
   const a = listHobi[dari.value - 1];
   const b = listHobi[ke.value - 1];
-  // console.log(([a, b] = [b, a]));
-  // console.log({ z });
-  // console.log({ a });
-  // console.log({ b });
+
+  listHobi.shift(a, b);
+  listHobi.push(a);
+  hasil.textContent = listHobi;
 }
 
 // ! mengubah urutan hobi sesuai kenigingan user
