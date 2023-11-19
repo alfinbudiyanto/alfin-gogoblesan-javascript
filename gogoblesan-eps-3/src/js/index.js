@@ -1,4 +1,3 @@
-/*? no js js needed from me */
 const hasil = document.getElementById("hasil");
 
 let listHobi = [];
