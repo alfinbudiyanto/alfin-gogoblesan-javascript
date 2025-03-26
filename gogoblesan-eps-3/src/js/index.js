@@ -4,21 +4,46 @@ let listHobi = [];
 
 function simpanInputHobi() {
   const input = document.getElementById("inputHobi");
-  const hobi = input.value;
+  const hobi = input.value.trim();
+
+  if (hobi === "") {
+    alert("Masukkan hobi terlebih dahulu!");
+    return;
+  }
+
   listHobi.push(hobi);
-  hasil.textContent = listHobi.join(" - ");
+  input.value = "";
+  updateHasil();
 }
 
 function mengalihkan() {
-  const dari = document.getElementById("dari");
-  const ke = document.getElementById("ke");
-  const a = listHobi[dari.value - 1];
-  const b = listHobi[ke.value - 1];
+  let dari = document.getElementById("dari").value;
+  let ke = document.getElementById("ke").value;
 
-  listHobi.shift(a, b);
-  listHobi.push(a);
-  hasil.textContent = listHobi;
+  // Konversi ke angka dan sesuaikan dengan indeks array
+  dari = parseInt(dari, 10) - 1;
+  ke = parseInt(ke, 10) - 1;
+
+  if (
+    isNaN(dari) ||
+    isNaN(ke) ||
+    dari < 0 ||
+    ke < 0 ||
+    dari >= listHobi.length ||
+    ke >= listHobi.length
+  ) {
+    alert(
+      "Indeks tidak valid! Masukkan angka antara 1 hingga " +
+        listHobi.length
+    );
+    return;
+  }
+
+  [listHobi[dari], listHobi[ke]] = [listHobi[ke], listHobi[dari]];
+
+  updateHasil();
 }
 
-// ! mengubah urutan hobi sesuai kenigingan user
-// ! validasi
+function updateHasil() {
+  hasil.textContent = listHobi.join(" - ");
+}
